@@ -12,7 +12,7 @@ export default [
   {
     component: 'CNavItem',
     name: 'Funcionários',
-    to: '/theme/colors',
+    to: '/crm/employees',
     icon: 'cil-user',
   },
   {
@@ -31,7 +31,7 @@ export default [
     component: 'CNavItem',
     name: 'Fornecedores',
     to: '/theme/typography',
-    icon: 'cil-cursor',
+    icon: 'cil-truck',
   },
   {
     component: 'CNavTitle',
@@ -85,7 +85,7 @@ export default [
     component: 'CNavItem',
     name: 'Contratos',
     to: '/theme/colors',
-    icon: 'cil-layers',
+    icon: 'cil-description',
   },
   {
     component: 'CNavTitle',
