@@ -20,14 +20,14 @@ const routes = [
           import(/* webpackChunkName: "dashboard" */ '@/views/Dashboard.vue'),
       },
       {
-        path: '/theme',
-        name: 'Theme',
+        path: '/crm',
+        name: 'Crm',
         redirect: '/theme/typography',
       },
       {
-        path: '/theme/colors',
-        name: 'Colors',
-        component: () => import('@/views/theme/Colors.vue'),
+        path: '/crm/employees',
+        name: 'Funcionários',
+        component: () => import('@/views/crm/Employees.vue'),
       },
       {
         path: '/theme/typography',
