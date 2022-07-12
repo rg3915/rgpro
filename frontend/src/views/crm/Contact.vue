@@ -4,7 +4,7 @@
       <CCol :md="12">
         <CCard class="mb-4">
           <CCardHeader>
-            Detalhes
+            Detalhes do Contato
             <CButton
               color="primary"
               variant="link"

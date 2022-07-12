@@ -40,7 +40,7 @@ export default [
   {
     component: 'CNavItem',
     name: 'Financeiro',
-    to: '/theme/colors',
+    to: '/financial/refunds',
     icon: 'cil-dollar',
   },
   {
@@ -50,7 +50,7 @@ export default [
   {
     component: 'CNavItem',
     name: 'NR dos Clientes',
-    to: '/theme/colors',
+    to: '/financial/refund-note-customers',
     icon: 'cil-book',
     badge: {
       color: 'danger',
@@ -60,7 +60,7 @@ export default [
   {
     component: 'CNavItem',
     name: 'NR Funcionários',
-    to: '/theme/colors',
+    to: '/financial/refund-note-employees',
     icon: 'cil-book',
     badge: {
       color: 'danger',
@@ -70,7 +70,7 @@ export default [
   {
     component: 'CNavItem',
     name: 'ND Fonte Pagadora',
-    to: '/theme/colors',
+    to: '/financial/refund-note-paying-sources',
     icon: 'cil-book',
     badge: {
       color: 'danger',

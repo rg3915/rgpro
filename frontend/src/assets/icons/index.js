@@ -40,6 +40,7 @@ import {
   cilCheck,
   cilChevronBottom,
   cilChevronTop,
+  cilCheckAlt,
   cilCheckCircle,
   cilClock,
   cilCode,
@@ -83,6 +84,7 @@ import {
   cilUser,
   cilUserFemale,
   cilUserFollow,
+  cilX,
   cilXCircle,
 } from '@coreui/icons'
 
@@ -103,6 +105,7 @@ export const iconsSet = Object.assign(
     cilCheck,
     cilChevronBottom,
     cilChevronTop,
+    cilCheckAlt,
     cilCheckCircle,
     cilClock,
     cilCode,
@@ -146,6 +149,7 @@ export const iconsSet = Object.assign(
     cilUser,
     cilUserFemale,
     cilUserFollow,
+    cilX,
     cilXCircle,
   },
   {
