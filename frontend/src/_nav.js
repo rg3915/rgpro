@@ -18,19 +18,19 @@ export default [
   {
     component: 'CNavItem',
     name: 'Clientes',
-    to: '/theme/typography',
+    to: '/crm/customers',
     icon: 'cil-people',
   },
   {
     component: 'CNavItem',
     name: 'Contatos',
-    to: '/theme/typography',
+    to: '/crm/contacts',
     icon: 'cil-people',
   },
   {
     component: 'CNavItem',
     name: 'Fornecedores',
-    to: '/theme/typography',
+    to: '/crm/providers',
     icon: 'cil-truck',
   },
   {

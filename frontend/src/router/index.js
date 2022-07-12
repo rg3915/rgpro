@@ -35,9 +35,34 @@ const routes = [
         component: () => import('@/views/crm/Employee.vue'),
       },
       {
-        path: '/theme/typography',
-        name: 'Typography',
-        component: () => import('@/views/theme/Typography.vue'),
+        path: '/crm/contacts',
+        name: 'Contatos',
+        component: () => import('@/views/crm/Contacts.vue'),
+      },
+      {
+        path: '/crm/contact',
+        name: 'Contato',
+        component: () => import('@/views/crm/Contact.vue'),
+      },
+      {
+        path: '/crm/customers',
+        name: 'Clientes',
+        component: () => import('@/views/crm/Customers.vue'),
+      },
+      {
+        path: '/crm/customer',
+        name: 'Cliente',
+        component: () => import('@/views/crm/Customer.vue'),
+      },
+      {
+        path: '/crm/providers',
+        name: 'Fornecedores',
+        component: () => import('@/views/crm/Providers.vue'),
+      },
+      {
+        path: '/crm/provider',
+        name: 'Fornecedor',
+        component: () => import('@/views/crm/Provider.vue'),
       },
       {
         path: '/base',
