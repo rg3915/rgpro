@@ -138,6 +138,11 @@ const routes = [
             name: 'Contratos',
             component: () => import('@/views/contract/Contracts.vue'),
           },
+          {
+            path: '/contract/contract',
+            name: 'Contrato',
+            component: () => import('@/views/contract/Contract.vue'),
+          },
         ],
       },
       {
