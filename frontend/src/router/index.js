@@ -97,14 +97,29 @@ const routes = [
             component: () => import('@/views/financial/RefundNoteCustomers.vue'),
           },
           {
+            path: '/financial/refund-note-customer',
+            name: 'Nota de Reembolso do Cliente',
+            component: () => import('@/views/financial/RefundNoteCustomer.vue'),
+          },
+          {
             path: '/financial/refund-note-employees',
             name: 'Notas de Reembolso dos Funcionários',
             component: () => import('@/views/financial/RefundNoteEmployees.vue'),
           },
           {
+            path: '/financial/refund-note-employee',
+            name: 'Nota de Reembolso do Funcionário',
+            component: () => import('@/views/financial/RefundNoteEmployee.vue'),
+          },
+          {
             path: '/financial/refund-note-paying-sources',
             name: 'Notas de Despesas da Fonte Pagadora',
             component: () => import('@/views/financial/RefundNotePayingSources.vue'),
+          },
+          {
+            path: '/financial/refund-note-paying-source',
+            name: 'Nota de Despesa da Fonte Pagadora',
+            component: () => import('@/views/financial/RefundNotePayingSource.vue'),
           },
         ],
       },

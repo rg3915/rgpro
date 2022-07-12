@@ -20,7 +20,7 @@
                 <CTableRow v-for="item in tableExample" :key="item.id">
                   <CTableDataCell>
                     <div>
-                      <router-link :to="{ name: 'Funcionário'}">{{ item.id }}</router-link>
+                      <router-link :to="{ name: 'Nota de Reembolso do Funcionário'}">{{ item.id }}</router-link>
                     </div>
                   </CTableDataCell>
                   <CTableDataCell>
