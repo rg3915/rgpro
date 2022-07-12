@@ -30,6 +30,11 @@ const routes = [
         component: () => import('@/views/crm/Employees.vue'),
       },
       {
+        path: '/crm/employee',
+        name: 'Funcionário',
+        component: () => import('@/views/crm/Employee.vue'),
+      },
+      {
         path: '/theme/typography',
         name: 'Typography',
         component: () => import('@/views/theme/Typography.vue'),

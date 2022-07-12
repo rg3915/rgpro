@@ -36,7 +36,9 @@
                     />
                   </CTableDataCell>
                   <CTableDataCell>
-                    <div>{{ item.user.name }}</div>
+                    <div>
+                      <router-link :to="{ name: 'Funcionário'}">{{ item.user.name }}</router-link>
+                    </div>
                     <div class="small text-medium-emphasis">
                       <span>{{ item.user.new ? 'New' : 'Recurring' }}</span> |
                       {{ item.user.registered }}
@@ -44,7 +46,7 @@
                   </CTableDataCell>
                   <CTableDataCell>
                     <div class="small">
-                      <a href="">{{ item.user.email }}</a>
+                      <a href=".">{{ item.user.email }}</a>
                     </div>
                   </CTableDataCell>
                   <CTableDataCell>
@@ -107,7 +109,7 @@ import avatar5 from '@/assets/images/avatars/5.jpg'
 import avatar6 from '@/assets/images/avatars/6.jpg'
 
 export default {
-  name: 'Dashboard',
+  name: 'Employees',
   setup() {
     const progressGroupExample1 = [
       { title: 'Monday', value1: 34, value2: 78 },
@@ -133,122 +135,122 @@ export default {
       { title: 'Twitter', icon: 'cib-twitter', percent: 11, value: '37,564' },
       { title: 'LinkedIn', icon: 'cib-linkedin', percent: 8, value: '27,319' },
     ]
-      const tableExample = [
-        {
-          avatar: { src: avatar1, status: 'success' },
-          user: {
-            name: 'Yiorgos Avraamu',
-            email: 'yiorgos@email.com',
-            phone: '11 98765-4321',
-            new: true,
-            registered: 'Jan 1, 2021',
-          },
-          country: { name: 'USA', flag: 'cif-us' },
-          usage: {
-            value: 50,
-            period: 'Jun 11, 2021 - Jul 10, 2021',
-            color: 'success',
-          },
-          payment: { name: 'Mastercard', icon: 'cib-cc-mastercard' },
-          activity: '10 sec ago',
-          active: true,
+    const tableExample = [
+      {
+        avatar: { src: avatar1, status: 'success' },
+        user: {
+          name: 'Rebecca Avraamu',
+          email: 'rebecca@email.com',
+          phone: '11 98765-4321',
+          new: true,
+          registered: 'Jan 1, 2021',
         },
-        {
-          avatar: { src: avatar2, status: 'danger' },
-          user: {
-            name: 'Avram Tarasios',
-            email: 'avram@email.com',
-            phone: '21 98531-4600',
-            new: false,
-            registered: 'Jan 1, 2021',
-          },
-          country: { name: 'Brazil', flag: 'cif-br' },
-          usage: {
-            value: 22,
-            period: 'Jun 11, 2021 - Jul 10, 2021',
-            color: 'info',
-          },
-          payment: { name: 'Visa', icon: 'cib-cc-visa' },
-          activity: '5 minutes ago',
-          active: false,
+        country: { name: 'USA', flag: 'cif-us' },
+        usage: {
+          value: 50,
+          period: 'Jun 11, 2021 - Jul 10, 2021',
+          color: 'success',
         },
-        {
-          avatar: { src: avatar3, status: 'warning' },
-          user: {
-            name: 'Quintin Ed',
-            email: 'quintin@email.com',
-            phone: '27 98752-0010',
-            new: true,
-            registered: 'Jan 1, 2021'
-          },
-          country: { name: 'India', flag: 'cif-in' },
-          usage: {
-            value: 74,
-            period: 'Jun 11, 2021 - Jul 10, 2021',
-            color: 'warning',
-          },
-          payment: { name: 'Stripe', icon: 'cib-cc-stripe' },
-          activity: '1 hour ago',
-          active: true,
+        payment: { name: 'Mastercard', icon: 'cib-cc-mastercard' },
+        activity: '10 sec ago',
+        active: true,
+      },
+      {
+        avatar: { src: avatar2, status: 'danger' },
+        user: {
+          name: 'Avram Tarasios',
+          email: 'avram@email.com',
+          phone: '21 98531-4600',
+          new: false,
+          registered: 'Jan 1, 2021',
         },
-        {
-          avatar: { src: avatar4, status: 'secondary' },
-          user: {
-            name: 'Enéas Kwadwo',
-            email: 'eneas@email.com',
-            phone: '32 98765-0000',
-            new: true,
-            registered: 'Jan 1, 2021'
-          },
-          country: { name: 'France', flag: 'cif-fr' },
-          usage: {
-            value: 98,
-            period: 'Jun 11, 2021 - Jul 10, 2021',
-            color: 'danger',
-          },
-          payment: { name: 'PayPal', icon: 'cib-cc-paypal' },
-          activity: 'Last month',
-          active: true,
+        country: { name: 'Brazil', flag: 'cif-br' },
+        usage: {
+          value: 22,
+          period: 'Jun 11, 2021 - Jul 10, 2021',
+          color: 'info',
         },
-        {
-          avatar: { src: avatar5, status: 'success' },
-          user: {
-            name: 'Agapetus Tadeáš',
-            email: 'agapetus@email.com',
-            phone: '11 98743-2100',
-            new: true,
-            registered: 'Jan 1, 2021',
-          },
-          country: { name: 'Spain', flag: 'cif-es' },
-          usage: {
-            value: 22,
-            period: 'Jun 11, 2021 - Jul 10, 2021',
-            color: 'primary',
-          },
-          payment: { name: 'Google Wallet', icon: 'cib-cc-apple-pay' },
-          activity: 'Last week',
-          active: true,
+        payment: { name: 'Visa', icon: 'cib-cc-visa' },
+        activity: '5 minutes ago',
+        active: false,
+      },
+      {
+        avatar: { src: avatar3, status: 'warning' },
+        user: {
+          name: 'Quintin Ed',
+          email: 'quintin@email.com',
+          phone: '27 98752-0010',
+          new: true,
+          registered: 'Jan 1, 2021'
         },
-        {
-          avatar: { src: avatar6, status: 'danger' },
-          user: {
-            name: 'Friderik Dávid',
-            email: 'friderik@email.com',
-            phone: '11 98460-0101',
-            new: true,
-            registered: 'Jan 1, 2021',
-          },
-          country: { name: 'Poland', flag: 'cif-pl' },
-          usage: {
-            value: 43,
-            period: 'Jun 11, 2021 - Jul 10, 2021',
-            color: 'success',
-          },
-          payment: { name: 'Amex', icon: 'cib-cc-amex' },
-          activity: 'Last week',
-          active: false,
+        country: { name: 'India', flag: 'cif-in' },
+        usage: {
+          value: 74,
+          period: 'Jun 11, 2021 - Jul 10, 2021',
+          color: 'warning',
         },
-      ]
+        payment: { name: 'Stripe', icon: 'cib-cc-stripe' },
+        activity: '1 hour ago',
+        active: true,
+      },
+      {
+        avatar: { src: avatar4, status: 'secondary' },
+        user: {
+          name: 'Enéas Kwadwo',
+          email: 'eneas@email.com',
+          phone: '32 98765-0000',
+          new: true,
+          registered: 'Jan 1, 2021'
+        },
+        country: { name: 'France', flag: 'cif-fr' },
+        usage: {
+          value: 98,
+          period: 'Jun 11, 2021 - Jul 10, 2021',
+          color: 'danger',
+        },
+        payment: { name: 'PayPal', icon: 'cib-cc-paypal' },
+        activity: 'Last month',
+        active: true,
+      },
+      {
+        avatar: { src: avatar5, status: 'success' },
+        user: {
+          name: 'Agapetus Tadeáš',
+          email: 'agapetus@email.com',
+          phone: '11 98743-2100',
+          new: true,
+          registered: 'Jan 1, 2021',
+        },
+        country: { name: 'Spain', flag: 'cif-es' },
+        usage: {
+          value: 22,
+          period: 'Jun 11, 2021 - Jul 10, 2021',
+          color: 'primary',
+        },
+        payment: { name: 'Google Wallet', icon: 'cib-cc-apple-pay' },
+        activity: 'Last week',
+        active: true,
+      },
+      {
+        avatar: { src: avatar6, status: 'danger' },
+        user: {
+          name: 'Friderik Dávid',
+          email: 'friderik@email.com',
+          phone: '11 98460-0101',
+          new: true,
+          registered: 'Jan 1, 2021',
+        },
+        country: { name: 'Poland', flag: 'cif-pl' },
+        usage: {
+          value: 43,
+          period: 'Jun 11, 2021 - Jul 10, 2021',
+          color: 'success',
+        },
+        payment: { name: 'Amex', icon: 'cib-cc-amex' },
+        activity: 'Last week',
+        active: false,
+      },
+    ]
 
     return {
       tableExample,
