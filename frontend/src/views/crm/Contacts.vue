@@ -88,7 +88,7 @@
                     <CBadge color="danger" v-else>Inativo</CBadge>
                   </CTableDataCell>
                   <CTableDataCell class="text-center">
-                    <CIcon class="text-primary" name="cil-pencil" />
+                    <CIcon class="text-primary" name="cil-pencil" @click="editItem(item)" />
                   </CTableDataCell>
                 </CTableRow>
                 <CTableRow> </CTableRow>
@@ -98,6 +98,103 @@
         </CCard>
       </CCol>
     </CRow>
+
+    <CModal size="xl" :visible="employeeModal" @close="closeEmployeeModal()">
+      <CModalHeader>
+        <CModalTitle>Editar Contato</CModalTitle>
+      </CModalHeader>
+      <CModalBody>
+        <CForm>
+          <CRow>
+            <CCol xs>
+              <div class="mb-3">
+                <CFormCheck id="flexCheckChecked1" label="Ativo" checked />
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput1">Nome</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput1" :value="editingItem.user.name" :placeholder="editingItem.user.name"/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput2">Sobrenome</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput2" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput3">E-mail</CFormLabel>
+                <CFormInput type="email" id="exampleFormControlInput3" :value="editingItem.user.email" :placeholder="editingItem.user.email"/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput4">Data de Nascimento</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput4" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput5">Cargo</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput5" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput6">RG</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput6" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput7">CPF</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput7" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput8">CNH</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput8" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput9">OAB</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput9" placeholder=""/>
+              </div>
+            </CCol>
+            <CCol xs>
+              <div class="mb-3">
+                <CFormCheck id="flexCheckChecked2" label="Online" checked />
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput10">Endereço</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput10" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput11">Número</CFormLabel>
+                <CFormInput type="number" id="exampleFormControlInput11" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput12">Complemento</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput12" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput13">Bairro</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput13" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput14">Cidade</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput14" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput15">UF</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput15" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput16">LinkedIn</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput16" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput17">Observações</CFormLabel>
+                <CFormTextarea id="exampleFormControlInput17" rows="5"></CFormTextarea>
+              </div>
+            </CCol>
+          </CRow>
+        </CForm>
+      </CModalBody>
+      <CModalFooter>
+        <CButton color="secondary" @click="closeEmployeeModal()">
+          Cancelar
+        </CButton>
+        <CButton color="primary">Salvar</CButton>
+      </CModalFooter>
+    </CModal>
+
   </div>
 </template>
 <script>
@@ -107,10 +204,12 @@ import avatar3 from '@/assets/images/avatars/3.jpg'
 import avatar4 from '@/assets/images/avatars/4.jpg'
 import avatar5 from '@/assets/images/avatars/5.jpg'
 import avatar6 from '@/assets/images/avatars/6.jpg'
+import { ref } from 'vue'
 
 export default {
-  name: 'Employees',
+  name: 'Contacts',
   setup() {
+    const employeeModal = ref(false)
     const progressGroupExample1 = [
       { title: 'Monday', value1: 34, value2: 78 },
       { title: 'Tuesday', value1: 56, value2: 94 },
@@ -257,7 +356,18 @@ export default {
       progressGroupExample1,
       progressGroupExample2,
       progressGroupExample3,
+      employeeModal,
+      editingItem: {},
     }
   },
+  methods: {
+    editItem(item) {
+      this.editingItem = { ...item };
+      this.employeeModal = true
+    },
+    closeEmployeeModal(item) {
+      this.employeeModal = false
+    },
+  }
 }
 </script>

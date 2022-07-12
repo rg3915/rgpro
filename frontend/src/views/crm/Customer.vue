@@ -598,7 +598,7 @@ import avatar1 from '@/assets/images/avatars/1.jpg'
 import { ref } from 'vue'
 
 export default {
-  name: 'Employee',
+  name: 'Customer',
   setup() {
     const employeeModal = ref(false)
     const phoneModal = ref(false)
