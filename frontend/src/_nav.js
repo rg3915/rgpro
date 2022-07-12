@@ -84,7 +84,7 @@ export default [
   {
     component: 'CNavItem',
     name: 'Contratos',
-    to: '/theme/colors',
+    to: '/contract/contracts',
     icon: 'cil-description',
   },
   {

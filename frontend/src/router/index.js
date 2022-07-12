@@ -124,6 +124,23 @@ const routes = [
         ],
       },
       {
+        path: '/contract',
+        name: 'Contract',
+        component: {
+          render() {
+            return h(resolveComponent('router-view'))
+          },
+        },
+        redirect: '/contract/contracts',
+        children: [
+          {
+            path: '/contract/contracts',
+            name: 'Contratos',
+            component: () => import('@/views/contract/Contracts.vue'),
+          },
+        ],
+      },
+      {
         path: '/buttons',
         name: 'Buttons',
         component: {
