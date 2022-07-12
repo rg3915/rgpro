@@ -5,7 +5,12 @@
         <CCard class="mb-4">
           <CCardHeader>
             Detalhes
-            <CButton color="primary" variant="link" size="sm">
+            <CButton
+              color="primary"
+              variant="link"
+              size="sm"
+              @click="openEmployeeModal()"
+            >
               <CIcon class="text-primary" name="cil-pencil" />
             </CButton>
             <CButton color="danger" variant="link" size="sm">
@@ -404,6 +409,102 @@
       </CCol>
     </CRow>
 
+    <CModal size="xl" :visible="employeeModal" @close="closeEmployeeModal()">
+      <CModalHeader>
+        <CModalTitle>Editar Funcionário</CModalTitle>
+      </CModalHeader>
+      <CModalBody>
+        <CForm>
+          <CRow>
+            <CCol xs>
+              <div class="mb-3">
+                <CFormCheck id="flexCheckChecked1" label="Ativo" checked />
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput1">Nome</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput1" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput2">Sobrenome</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput2" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput3">E-mail</CFormLabel>
+                <CFormInput type="email" id="exampleFormControlInput3" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput4">Data de Nascimento</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput4" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput5">Cargo</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput5" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput6">RG</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput6" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput7">CPF</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput7" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput8">CNH</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput8" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput9">OAB</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput9" placeholder=""/>
+              </div>
+            </CCol>
+            <CCol xs>
+              <div class="mb-3">
+                <CFormCheck id="flexCheckChecked2" label="Online" checked />
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput10">Endereço</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput10" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput11">Número</CFormLabel>
+                <CFormInput type="number" id="exampleFormControlInput11" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput12">Complemento</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput12" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput13">Bairro</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput13" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput14">Cidade</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput14" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput15">UF</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput15" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput16">LinkedIn</CFormLabel>
+                <CFormInput type="text" id="exampleFormControlInput16" placeholder=""/>
+              </div>
+              <div class="mb-3">
+                <CFormLabel for="exampleFormControlInput17">Observações</CFormLabel>
+                <CFormTextarea id="exampleFormControlInput17" rows="5"></CFormTextarea>
+              </div>
+            </CCol>
+          </CRow>
+        </CForm>
+      </CModalBody>
+      <CModalFooter>
+        <CButton color="secondary" @click="closeEmployeeModal()">
+          Cancelar
+        </CButton>
+        <CButton color="primary">Salvar</CButton>
+      </CModalFooter>
+    </CModal>
+
     <CModal :visible="phoneModal" @close="closePhoneModal()">
       <CModalHeader>
         <CModalTitle>Telefone</CModalTitle>
@@ -424,7 +525,7 @@
       </CModalBody>
       <CModalFooter>
         <CButton color="secondary" @click="closePhoneModal()">
-          Fechar
+          Cancelar
         </CButton>
         <CButton color="primary">Salvar</CButton>
       </CModalFooter>
@@ -452,7 +553,7 @@
       </CModalBody>
       <CModalFooter>
         <CButton color="secondary" @click="closeContactModal()">
-          Fechar
+          Cancelar
         </CButton>
         <CButton color="primary">Salvar</CButton>
       </CModalFooter>
@@ -484,7 +585,7 @@
       </CModalBody>
       <CModalFooter>
         <CButton color="secondary" @click="closeBankModal()">
-          Fechar
+          Cancelar
         </CButton>
         <CButton color="primary">Salvar</CButton>
       </CModalFooter>
@@ -499,6 +600,7 @@ import { ref } from 'vue'
 export default {
   name: 'Employee',
   setup() {
+    const employeeModal = ref(false)
     const phoneModal = ref(false)
     const contactModal = ref(false)
     const bankModal = ref(false)
@@ -595,6 +697,7 @@ export default {
 
     return {
       item,
+      employeeModal,
       phoneModal,
       contactModal,
       bankModal,
@@ -602,6 +705,12 @@ export default {
     }
   },
   methods: {
+    openEmployeeModal() {
+      this.employeeModal = true
+    },
+    closeEmployeeModal() {
+      this.employeeModal = false
+    },
     openPhoneModal() {
       this.phoneModal = true
     },
