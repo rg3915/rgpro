@@ -125,7 +125,7 @@ const routes = [
       },
       {
         path: '/contract',
-        name: 'Contract',
+        name: 'Contratos',
         component: {
           render() {
             return h(resolveComponent('router-view'))
@@ -147,7 +147,7 @@ const routes = [
       },
       {
         path: '/timesheet',
-        name: 'Timesheet',
+        name: 'Timesheets',
         component: {
           render() {
             return h(resolveComponent('router-view'))
@@ -164,6 +164,15 @@ const routes = [
             path: '/timesheet/timesheet',
             name: 'Timesheet',
             component: () => import('@/views/timesheet/Timesheet.vue'),
+          },
+          {
+            path: '/timesheet/reports',
+            name: 'TimesheetReports',
+            component: () => import('@/views/timesheet/TimesheetReports.vue'),
+          },          {
+            path: '/timesheet/report',
+            name: 'TimesheetReport',
+            component: () => import('@/views/timesheet/TimesheetReport.vue'),
           },
         ],
       },

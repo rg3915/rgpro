@@ -22,7 +22,7 @@
                       {{ item.timesheet_date }}
                     </div>
                     <div>
-                      <router-link :to="{ name: 'Contrato'}">
+                      <router-link :to="{ name: 'Timesheet'}">
                         <h4>{{ item.timesheet_hours }}</h4>
                       </router-link>
                     </div>
@@ -68,7 +68,7 @@
 import { ref } from 'vue'
 
 export default {
-  name: 'Refunds',
+  name: 'Timesheets',
   setup() {
     const itemModal = ref(false)
     const tableExample = [

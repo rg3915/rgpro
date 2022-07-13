@@ -100,7 +100,7 @@ export default [
   {
     component: 'CNavItem',
     name: 'Relatórios',
-    to: '/theme/typography',
+    to: '/timesheet/reports',
     icon: 'cil-list',
   },
   {
