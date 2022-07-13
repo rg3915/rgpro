@@ -27,7 +27,7 @@
                   </CTableDataCell>
                   <CTableDataCell>
                     <div>
-                      <router-link :to="{ name: 'Contrato'}">{{ item.title }}</router-link>
+                      <router-link :to="{ name: 'Contrato'}">{{ item.id}} - {{ item.title }}</router-link>
                     </div>
                   </CTableDataCell>
                   <CTableDataCell>

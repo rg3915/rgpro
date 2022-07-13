@@ -94,7 +94,7 @@ export default [
   {
     component: 'CNavItem',
     name: 'TimeSheet',
-    to: '/theme/colors',
+    to: '/timesheet/timesheets',
     icon: 'cil-clock',
   },
   {

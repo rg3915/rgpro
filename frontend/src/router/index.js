@@ -35,7 +35,7 @@ const routes = [
             component: () => import('@/views/crm/Employees.vue'),
           },
           {
-            path: '/crm/employee',
+            path: '/crm/employees/:id',
             name: 'Funcionário',
             component: () => import('@/views/crm/Employee.vue'),
           },
@@ -142,6 +142,28 @@ const routes = [
             path: '/contract/contract',
             name: 'Contrato',
             component: () => import('@/views/contract/Contract.vue'),
+          },
+        ],
+      },
+      {
+        path: '/timesheet',
+        name: 'Timesheet',
+        component: {
+          render() {
+            return h(resolveComponent('router-view'))
+          },
+        },
+        redirect: '/timesheet/timesheets',
+        children: [
+          {
+            path: '/timesheet/timesheets',
+            name: 'Timesheets',
+            component: () => import('@/views/timesheet/Timesheets.vue'),
+          },
+          {
+            path: '/timesheet/timesheet',
+            name: 'Timesheet',
+            component: () => import('@/views/timesheet/Timesheet.vue'),
           },
         ],
       },

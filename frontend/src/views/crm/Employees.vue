@@ -37,7 +37,7 @@
                   </CTableDataCell>
                   <CTableDataCell>
                     <div>
-                      <router-link :to="{ name: 'Funcionário'}">{{ item.user.name }}</router-link>
+                      <router-link :to="{ name: 'Funcionário', params: { id: item.id }}">{{ item.user.name }}</router-link>
                     </div>
                     <div class="small text-medium-emphasis">
                       <span>{{ item.user.new ? 'New' : 'Recurring' }}</span> |
@@ -236,6 +236,7 @@ export default {
     ]
     const tableExample = [
       {
+        id: 1,
         avatar: { src: avatar1, status: 'success' },
         user: {
           name: 'Rebecca Avraamu',
@@ -255,6 +256,7 @@ export default {
         active: true,
       },
       {
+        id: 2,
         avatar: { src: avatar2, status: 'danger' },
         user: {
           name: 'Avram Tarasios',
@@ -274,6 +276,7 @@ export default {
         active: false,
       },
       {
+        id: 3,
         avatar: { src: avatar3, status: 'warning' },
         user: {
           name: 'Quintin Ed',
@@ -293,6 +296,7 @@ export default {
         active: true,
       },
       {
+        id: 4,
         avatar: { src: avatar4, status: 'secondary' },
         user: {
           name: 'Enéas Kwadwo',
@@ -312,6 +316,7 @@ export default {
         active: true,
       },
       {
+        id: 5,
         avatar: { src: avatar5, status: 'success' },
         user: {
           name: 'Agapetus Tadeáš',
@@ -331,6 +336,7 @@ export default {
         active: true,
       },
       {
+        id: 6,
         avatar: { src: avatar6, status: 'danger' },
         user: {
           name: 'Friderik Dávid',
