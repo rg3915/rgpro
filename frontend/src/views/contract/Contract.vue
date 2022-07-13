@@ -91,7 +91,7 @@
 </template>
 <script>
 export default {
-  name: 'Employee',
+  name: 'Contract',
   setup() {
     const item = {
       id: '001',

@@ -98,7 +98,7 @@
 </template>
 <script>
 export default {
-  name: 'TimesheetReports',
+  name: 'TimesheetReport',
   setup() {
     const item = {
       id: '001/2022',

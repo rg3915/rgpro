@@ -131,7 +131,7 @@
 import { ref } from 'vue'
 
 export default {
-  name: 'Employee',
+  name: 'Refund',
   setup() {
     const itemModal = ref(false)
     const item = {

@@ -57,7 +57,7 @@
 import { ref } from 'vue'
 
 export default {
-  name: 'Refunds',
+  name: 'Contracts',
   setup() {
     const itemModal = ref(false)
     const tableExample = [

@@ -62,7 +62,7 @@
 import { ref } from 'vue'
 
 export default {
-  name: 'Refunds',
+  name: 'RefundNotePayingSources',
   setup() {
     const itemModal = ref(false)
     const tableExample = [

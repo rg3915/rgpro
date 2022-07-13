@@ -69,7 +69,7 @@
 </template>
 <script>
 export default {
-  name: 'Employee',
+  name: 'RefundNoteEmployee',
   setup() {
     const item = {
       id: '001/2022',
