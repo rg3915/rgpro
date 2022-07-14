@@ -110,7 +110,7 @@ export default [
   {
     component: 'CNavItem',
     name: 'Pastas',
-    to: '/theme/colors',
+    to: '/folder/folders',
     icon: 'cil-folder',
   },
   // {

@@ -177,6 +177,28 @@ const routes = [
         ],
       },
       {
+        path: '/folder',
+        name: 'Pastas',
+        component: {
+          render() {
+            return h(resolveComponent('router-view'))
+          },
+        },
+        redirect: '/folder/folders',
+        children: [
+          {
+            path: '/folder/folders',
+            name: 'Pastas',
+            component: () => import('@/views/folder/Folders.vue'),
+          },
+          {
+            path: '/folder/folder',
+            name: 'Pasta',
+            component: () => import('@/views/folder/Folder.vue'),
+          },
+        ],
+      },
+      {
         path: '/buttons',
         name: 'Buttons',
         component: {
