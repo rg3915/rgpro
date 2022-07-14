@@ -76,7 +76,7 @@
               <CCol>
                 <CCard>
                   <CCardBody>
-                    <embed src="http://www.africau.edu/images/default/sample.pdf" type="application/pdf" width="100%" height="750px">
+                    <embed src="https://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf" type="application/pdf" width="100%" height="750px">
                   </CCardBody>
                 </CCard>
               </CCol>
