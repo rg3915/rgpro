@@ -6,8 +6,9 @@
           <CCardHeader>
             Detalhes da Pasta
             ({{ tableExample.length }} documentos)
-            <CButton color="success" size="sm">
-              <CIcon class="text-light" name="cil-plus" /> <span class="text-light">Adicionar</span>
+            <CButton color="success" size="sm" @click="addItem()">
+              <CIcon class="text-light" name="cil-plus"/>
+                <span class="text-light">Adicionar</span>
             </CButton>
           </CCardHeader>
           <CCardBody>

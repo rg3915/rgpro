@@ -3,7 +3,13 @@
     <CRow>
       <CCol :md="12">
         <CCard class="mb-4">
-          <CCardHeader>Notas de Reembolso dos Funcionários</CCardHeader>
+          <CCardHeader>
+            Notas de Reembolso dos Funcionários
+            <CButton color="success" size="sm" @click="addItem()">
+              <CIcon class="text-light" name="cil-plus"/>
+                <span class="text-light">Adicionar</span>
+            </CButton>
+          </CCardHeader>
           <CCardBody>
             <CTable align="middle" class="mb-0 border" hover responsive>
               <CTableHead color="light">

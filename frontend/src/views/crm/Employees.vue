@@ -3,7 +3,13 @@
     <CRow>
       <CCol :md="12">
         <CCard class="mb-4">
-          <CCardHeader>Funcionários</CCardHeader>
+          <CCardHeader>
+            Funcionários
+            <CButton color="success" size="sm" @click="addItem()">
+              <CIcon class="text-light" name="cil-plus"/>
+                <span class="text-light">Adicionar</span>
+            </CButton>
+          </CCardHeader>
           <CCardBody>
             <CTable align="middle" class="mb-0 border" hover responsive>
               <CTableHead color="light">
@@ -112,39 +118,39 @@
               </div>
               <div class="mb-3">
                 <CFormLabel for="exampleFormControlInput1">Nome</CFormLabel>
-                <CFormInput type="text" id="exampleFormControlInput1" :value="editingItem.user.name" :placeholder="editingItem.user.name"/>
+                <CFormInput type="text" id="exampleFormControlInput1" v-model="editingItem.user.name"/>
               </div>
               <div class="mb-3">
                 <CFormLabel for="exampleFormControlInput2">Sobrenome</CFormLabel>
-                <CFormInput type="text" id="exampleFormControlInput2" placeholder=""/>
+                <CFormInput type="text" id="exampleFormControlInput2"/>
               </div>
               <div class="mb-3">
                 <CFormLabel for="exampleFormControlInput3">E-mail</CFormLabel>
-                <CFormInput type="email" id="exampleFormControlInput3" :value="editingItem.user.email" :placeholder="editingItem.user.email"/>
+                <CFormInput type="email" id="exampleFormControlInput3" v-model="editingItem.user.email"/>
               </div>
               <div class="mb-3">
                 <CFormLabel for="exampleFormControlInput4">Data de Nascimento</CFormLabel>
-                <CFormInput type="text" id="exampleFormControlInput4" placeholder=""/>
+                <CFormInput type="text" id="exampleFormControlInput4" placeholder="00/00/0000"/>
               </div>
               <div class="mb-3">
                 <CFormLabel for="exampleFormControlInput5">Cargo</CFormLabel>
-                <CFormInput type="text" id="exampleFormControlInput5" placeholder=""/>
+                <CFormInput type="text" id="exampleFormControlInput5"/>
               </div>
               <div class="mb-3">
                 <CFormLabel for="exampleFormControlInput6">RG</CFormLabel>
-                <CFormInput type="text" id="exampleFormControlInput6" placeholder=""/>
+                <CFormInput type="text" id="exampleFormControlInput6"/>
               </div>
               <div class="mb-3">
                 <CFormLabel for="exampleFormControlInput7">CPF</CFormLabel>
-                <CFormInput type="text" id="exampleFormControlInput7" placeholder=""/>
+                <CFormInput type="text" id="exampleFormControlInput7"/>
               </div>
               <div class="mb-3">
                 <CFormLabel for="exampleFormControlInput8">CNH</CFormLabel>
-                <CFormInput type="text" id="exampleFormControlInput8" placeholder=""/>
+                <CFormInput type="text" id="exampleFormControlInput8"/>
               </div>
               <div class="mb-3">
                 <CFormLabel for="exampleFormControlInput9">OAB</CFormLabel>
-                <CFormInput type="text" id="exampleFormControlInput9" placeholder=""/>
+                <CFormInput type="text" id="exampleFormControlInput9"/>
               </div>
             </CCol>
             <CCol xs>
@@ -153,31 +159,31 @@
               </div>
               <div class="mb-3">
                 <CFormLabel for="exampleFormControlInput10">Endereço</CFormLabel>
-                <CFormInput type="text" id="exampleFormControlInput10" placeholder=""/>
+                <CFormInput type="text" id="exampleFormControlInput10"/>
               </div>
               <div class="mb-3">
                 <CFormLabel for="exampleFormControlInput11">Número</CFormLabel>
-                <CFormInput type="number" id="exampleFormControlInput11" placeholder=""/>
+                <CFormInput type="number" id="exampleFormControlInput11"/>
               </div>
               <div class="mb-3">
                 <CFormLabel for="exampleFormControlInput12">Complemento</CFormLabel>
-                <CFormInput type="text" id="exampleFormControlInput12" placeholder=""/>
+                <CFormInput type="text" id="exampleFormControlInput12"/>
               </div>
               <div class="mb-3">
                 <CFormLabel for="exampleFormControlInput13">Bairro</CFormLabel>
-                <CFormInput type="text" id="exampleFormControlInput13" placeholder=""/>
+                <CFormInput type="text" id="exampleFormControlInput13"/>
               </div>
               <div class="mb-3">
                 <CFormLabel for="exampleFormControlInput14">Cidade</CFormLabel>
-                <CFormInput type="text" id="exampleFormControlInput14" placeholder=""/>
+                <CFormInput type="text" id="exampleFormControlInput14"/>
               </div>
               <div class="mb-3">
                 <CFormLabel for="exampleFormControlInput15">UF</CFormLabel>
-                <CFormInput type="text" id="exampleFormControlInput15" placeholder=""/>
+                <CFormInput type="text" id="exampleFormControlInput15"/>
               </div>
               <div class="mb-3">
                 <CFormLabel for="exampleFormControlInput16">LinkedIn</CFormLabel>
-                <CFormInput type="text" id="exampleFormControlInput16" placeholder=""/>
+                <CFormInput type="text" id="exampleFormControlInput16"/>
               </div>
               <div class="mb-3">
                 <CFormLabel for="exampleFormControlInput17">Observações</CFormLabel>
@@ -363,10 +369,24 @@ export default {
       progressGroupExample2,
       progressGroupExample3,
       employeeModal,
-      editingItem: {},
+      editingItem: {
+        user: {
+          name: '',
+          email: '',
+        },
+      },
     }
   },
   methods: {
+    addItem() {
+      this.editingItem = {
+        user: {
+          name: '',
+          email: '',
+        },
+      }
+      this.employeeModal = true
+    },
     editItem(item) {
       this.editingItem = { ...item };
       this.employeeModal = true
