@@ -114,7 +114,7 @@
           <CRow>
             <CCol xs>
               <div class="mb-3">
-                <CFormCheck id="flexCheckChecked1" label="Ativo" checked />
+                <CFormCheck id="flexCheckChecked1" label="Ativo" v-model="editingItem.active" />
               </div>
               <div class="mb-3">
                 <CFormLabel for="exampleFormControlInput1">Nome</CFormLabel>
@@ -126,7 +126,7 @@
               </div>
               <div class="mb-3">
                 <CFormLabel for="exampleFormControlInput3">E-mail</CFormLabel>
-                <CFormInput type="text" id="exampleFormControlInput3" v-model="editingItem.user.email"/>
+                <CFormInput type="email" id="exampleFormControlInput3" v-model="editingItem.user.email"/>
               </div>
               <div class="mb-3">
                 <CFormLabel for="exampleFormControlInput4">Data de Nascimento</CFormLabel>
@@ -197,7 +197,7 @@
         <CButton color="secondary" @click="closeEmployeeModal()">
           Cancelar
         </CButton>
-        <CButton color="primary">Salvar</CButton>
+        <CButton color="primary" @click="saveItem(editingItem)">Salvar</CButton>
       </CModalFooter>
     </CModal>
 
@@ -213,7 +213,7 @@ import avatar6 from '@/assets/images/avatars/6.jpg'
 import { ref } from 'vue'
 
 export default {
-  name: 'Customers',
+  name: 'Employees',
   setup() {
     const employeeModal = ref(false)
     const progressGroupExample1 = [
@@ -240,8 +240,9 @@ export default {
       { title: 'Twitter', icon: 'cib-twitter', percent: 11, value: '37,564' },
       { title: 'LinkedIn', icon: 'cib-linkedin', percent: 8, value: '27,319' },
     ]
-    const tableExample = [
+    const tableExample = ref([
       {
+        id: 1,
         avatar: { src: avatar1, status: 'success' },
         user: {
           name: 'Rebecca Avraamu',
@@ -261,6 +262,7 @@ export default {
         active: true,
       },
       {
+        id: 2,
         avatar: { src: avatar2, status: 'danger' },
         user: {
           name: 'Avram Tarasios',
@@ -280,6 +282,7 @@ export default {
         active: false,
       },
       {
+        id: 3,
         avatar: { src: avatar3, status: 'warning' },
         user: {
           name: 'Quintin Ed',
@@ -299,6 +302,7 @@ export default {
         active: true,
       },
       {
+        id: 4,
         avatar: { src: avatar4, status: 'secondary' },
         user: {
           name: 'Enéas Kwadwo',
@@ -318,6 +322,7 @@ export default {
         active: true,
       },
       {
+        id: 5,
         avatar: { src: avatar5, status: 'success' },
         user: {
           name: 'Agapetus Tadeáš',
@@ -337,6 +342,7 @@ export default {
         active: true,
       },
       {
+        id: 6,
         avatar: { src: avatar6, status: 'danger' },
         user: {
           name: 'Friderik Dávid',
@@ -355,6 +361,14 @@ export default {
         activity: 'Last week',
         active: false,
       },
+    ])
+    const array = [
+      avatar1,
+      avatar2,
+      avatar3,
+      avatar4,
+      avatar5,
+      avatar6,
     ]
 
     return {
@@ -369,6 +383,7 @@ export default {
           email: '',
         },
       },
+      array,
     }
   },
   methods: {
@@ -380,6 +395,35 @@ export default {
         },
       }
       this.employeeModal = true
+    },
+    saveItem(item) {
+      if (item.id) {
+        this.employeeModal = false
+        return
+      }
+      const randomAvatar = this.array[Math.floor(Math.random() * this.array.length)]
+      const randomValue = Math.floor(Math.random() * 100)
+      this.tableExample.push({
+        id: 6,
+        avatar: { src: randomAvatar, status: 'success' },
+        user: {
+          name: this.editingItem.user.name,
+          email: this.editingItem.user.email,
+          phone: '11 98460-0101',
+          new: true,
+          registered: 'Jan 1, 2021',
+        },
+        country: { name: 'Brazil', flag: 'cif-br' },
+        usage: {
+          value: randomValue,
+          period: 'Jun 11, 2021 - Jul 10, 2021',
+          color: 'success',
+        },
+        payment: { name: 'Amex', icon: 'cib-cc-amex' },
+        activity: 'Last week',
+        active: this.editingItem.active,
+      })
+      this.employeeModal = false
     },
     editItem(item) {
       this.editingItem = { ...item };

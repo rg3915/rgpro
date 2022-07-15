@@ -35,7 +35,7 @@ const routes = [
             component: () => import('@/views/crm/Employees.vue'),
           },
           {
-            path: '/crm/employees/:id',
+            path: '/crm/employee',
             name: 'Funcionário',
             component: () => import('@/views/crm/Employee.vue'),
           },

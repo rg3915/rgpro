@@ -43,7 +43,7 @@
                   </CTableDataCell>
                   <CTableDataCell>
                     <div>
-                      <router-link :to="{ name: 'Funcionário', params: { id: item.id }}">{{ item.user.name }}</router-link>
+                      <router-link :to="{ name: 'Funcionário'}">{{ item.user.name }}</router-link>
                     </div>
                     <div class="small text-medium-emphasis">
                       <span>{{ item.user.new ? 'New' : 'Recurring' }}</span> |
@@ -197,7 +197,7 @@
         <CButton color="secondary" @click="closeEmployeeModal()">
           Cancelar
         </CButton>
-        <CButton color="primary" @click="saveItem()">Salvar</CButton>
+        <CButton color="primary" @click="saveItem(editingItem)">Salvar</CButton>
       </CModalFooter>
     </CModal>
 
@@ -396,8 +396,13 @@ export default {
       }
       this.employeeModal = true
     },
-    saveItem() {
+    saveItem(item) {
+      if (item.id) {
+        this.employeeModal = false
+        return
+      }
       const randomAvatar = this.array[Math.floor(Math.random() * this.array.length)]
+      const randomValue = Math.floor(Math.random() * 100)
       this.tableExample.push({
         id: 6,
         avatar: { src: randomAvatar, status: 'success' },
@@ -410,7 +415,7 @@ export default {
         },
         country: { name: 'Brazil', flag: 'cif-br' },
         usage: {
-          value: 100,
+          value: randomValue,
           period: 'Jun 11, 2021 - Jul 10, 2021',
           color: 'success',
         },
