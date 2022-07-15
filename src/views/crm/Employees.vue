@@ -114,7 +114,7 @@
           <CRow>
             <CCol xs>
               <div class="mb-3">
-                <CFormCheck id="flexCheckChecked1" label="Ativo" checked />
+                <CFormCheck id="flexCheckChecked1" label="Ativo" v-model="editingItem.active" />
               </div>
               <div class="mb-3">
                 <CFormLabel for="exampleFormControlInput1">Nome</CFormLabel>
@@ -197,7 +197,7 @@
         <CButton color="secondary" @click="closeEmployeeModal()">
           Cancelar
         </CButton>
-        <CButton color="primary">Salvar</CButton>
+        <CButton color="primary" @click="saveItem()">Salvar</CButton>
       </CModalFooter>
     </CModal>
 
@@ -240,7 +240,7 @@ export default {
       { title: 'Twitter', icon: 'cib-twitter', percent: 11, value: '37,564' },
       { title: 'LinkedIn', icon: 'cib-linkedin', percent: 8, value: '27,319' },
     ]
-    const tableExample = [
+    const tableExample = ref([
       {
         id: 1,
         avatar: { src: avatar1, status: 'success' },
@@ -361,6 +361,14 @@ export default {
         activity: 'Last week',
         active: false,
       },
+    ])
+    const array = [
+      avatar1,
+      avatar2,
+      avatar3,
+      avatar4,
+      avatar5,
+      avatar6,
     ]
 
     return {
@@ -375,6 +383,7 @@ export default {
           email: '',
         },
       },
+      array,
     }
   },
   methods: {
@@ -386,6 +395,30 @@ export default {
         },
       }
       this.employeeModal = true
+    },
+    saveItem() {
+      const randomAvatar = this.array[Math.floor(Math.random() * this.array.length)]
+      this.tableExample.push({
+        id: 6,
+        avatar: { src: randomAvatar, status: 'success' },
+        user: {
+          name: this.editingItem.user.name,
+          email: this.editingItem.user.email,
+          phone: '11 98460-0101',
+          new: true,
+          registered: 'Jan 1, 2021',
+        },
+        country: { name: 'Brazil', flag: 'cif-br' },
+        usage: {
+          value: 100,
+          period: 'Jun 11, 2021 - Jul 10, 2021',
+          color: 'success',
+        },
+        payment: { name: 'Amex', icon: 'cib-cc-amex' },
+        activity: 'Last week',
+        active: this.editingItem.active,
+      })
+      this.employeeModal = false
     },
     editItem(item) {
       this.editingItem = { ...item };
