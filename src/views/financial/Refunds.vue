@@ -69,7 +69,8 @@
 
     <CModal :visible="itemModal" @close="closeModal()">
       <CModalHeader>
-        <CModalTitle>Editar Reembolso</CModalTitle>
+        <CModalTitle v-if="is_edit">Editar Reembolso</CModalTitle>
+        <CModalTitle v-else>Adicionar Reembolso</CModalTitle>
       </CModalHeader>
       <CModalBody>
         <CForm>
@@ -145,11 +146,13 @@ export default {
       tableExample,
       itemModal,
       editingItem: {},
+      is_edit: ref(false)
     }
   },
   methods: {
     addItem() {
       this.editingItem = {}
+      this.is_edit = false
       this.itemModal = true
     },
     saveItem(item) {
@@ -183,6 +186,7 @@ export default {
     },
     editItem(item) {
       this.editingItem = { ...item }
+      this.is_edit = true
       this.itemModal = true
     },
     closeModal(item) {

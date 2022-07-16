@@ -107,7 +107,8 @@
 
     <CModal size="xl" :visible="employeeModal" @close="closeEmployeeModal()">
       <CModalHeader>
-        <CModalTitle>Editar Funcionário</CModalTitle>
+        <CModalTitle v-if="is_edit">Editar Funcionário</CModalTitle>
+        <CModalTitle v-else>Adicionar Funcionário</CModalTitle>
       </CModalHeader>
       <CModalBody>
         <CForm>
@@ -384,6 +385,7 @@ export default {
         },
       },
       array,
+      is_edit: ref(false)
     }
   },
   methods: {
@@ -394,6 +396,7 @@ export default {
           email: '',
         },
       }
+      this.is_edit = false
       this.employeeModal = true
     },
     saveItem(item) {
@@ -427,6 +430,7 @@ export default {
     },
     editItem(item) {
       this.editingItem = { ...item }
+      this.is_edit = true
       this.employeeModal = true
     },
     closeEmployeeModal(item) {
