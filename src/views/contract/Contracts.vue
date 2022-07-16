@@ -33,7 +33,7 @@
                   </CTableDataCell>
                   <CTableDataCell>
                     <div>
-                      <router-link :to="{ name: 'Contrato'}">{{ item.id}} - {{ item.title }}</router-link>
+                      <router-link :to="{ name: 'Contrato'}">{{ code(item.id) }} - {{ item.title }}</router-link>
                     </div>
                   </CTableDataCell>
                   <CTableDataCell>
@@ -57,6 +57,34 @@
       </CCol>
     </CRow>
 
+    <CModal :visible="itemModal" @close="closeModal()">
+      <CModalHeader>
+        <CModalTitle>Editar Reembolso</CModalTitle>
+      </CModalHeader>
+      <CModalBody>
+        <CForm>
+          <div class="mb-3">
+            <CFormLabel for="exampleFormControlInput1">Cliente</CFormLabel>
+            <CFormInput type="text" id="exampleFormControlInput1" v-model="editingItem.customer"/>
+          </div>
+          <div class="mb-3">
+            <CFormLabel for="exampleFormControlInput2">Título</CFormLabel>
+            <CFormInput type="text" id="exampleFormControlInput2" v-model="editingItem.title"/>
+          </div>
+          <div class="mb-3">
+            <CFormLabel for="exampleFormControlInput3">Valor</CFormLabel>
+            <CFormInput type="number" step="0.01" id="exampleFormControlInput3" v-model="editingItem.value"/>
+          </div>
+        </CForm>
+      </CModalBody>
+      <CModalFooter>
+        <CButton color="secondary" @click="closeModal()">
+          Cancelar
+        </CButton>
+        <CButton color="primary" @click="saveItem(editingItem)">Salvar</CButton>
+      </CModalFooter>
+    </CModal>
+
   </div>
 </template>
 <script>
@@ -66,9 +94,9 @@ export default {
   name: 'Contracts',
   setup() {
     const itemModal = ref(false)
-    const tableExample = [
+    const tableExample = ref([
       {
-        id: '001',
+        id: 1,
         customer: 'Jones Lohan',
         title: 'Lorem ipsum',
         type: 'por hora',
@@ -77,7 +105,7 @@ export default {
         active: true,
       },
       {
-        id: '002',
+        id: 2,
         customer: 'James Stewart',
         title: 'Deserunt mollit anim id est laborum',
         type: 'mensal',
@@ -86,7 +114,7 @@ export default {
         active: true,
       },
       {
-        id: '003',
+        id: 3,
         customer: 'Roy Mustang',
         title: 'Laboris nisi ut aliquip',
         type: 'fixo',
@@ -94,7 +122,7 @@ export default {
         value: 10280.99,
         active: false,
       },
-    ]
+    ])
 
     return {
       tableExample,
@@ -103,13 +131,42 @@ export default {
     }
   },
   methods: {
+    addItem() {
+      this.editingItem = {}
+      this.itemModal = true
+    },
+    saveItem(item) {
+      // Update
+      if (item.id) {
+        const obj = this.tableExample.find(d => d.id === item.id)
+        obj.customer = item.customer
+        obj.title = item.title
+        obj.value = item.value
+        this.itemModal = false
+        return
+      }
+      // Create
+      this.tableExample.push({
+        id: this.tableExample.length + 1,
+        customer: this.editingItem.customer,
+        title: this.editingItem.title,
+        value: this.editingItem.value,
+        type: 'mensal',
+        type_color: 'warning',
+        active: true,
+      })
+      this.itemModal = false
+    },
     editItem(item) {
-      this.editingItem = { ...item };
+      this.editingItem = { ...item }
       this.itemModal = true
     },
     closeModal(item) {
       this.itemModal = false
     },
-  }
+    code(id) {
+      return '00' + id
+    }
+  },
 }
 </script>
