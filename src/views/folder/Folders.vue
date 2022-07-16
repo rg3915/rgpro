@@ -5,10 +5,10 @@
         <CCard class="mb-4">
           <CCardHeader>
             Pastas
-            <CButton color="success" size="sm" @click="addItem()">
+            <!-- <CButton color="success" size="sm" @click="addItem()">
               <CIcon class="text-light" name="cil-plus"/>
                 <span class="text-light">Adicionar</span>
-            </CButton>
+            </CButton> -->
           </CCardHeader>
           <CCardBody>
             <CTable align="middle" class="mb-0 border" hover responsive>
@@ -54,7 +54,7 @@
                     <CBadge color="danger" v-else>Inativo</CBadge>
                   </CTableDataCell>
                   <CTableDataCell class="text-center">
-                    <CIcon class="text-primary" name="cil-pencil" @click="editItem(item)" />
+                    <!-- <CIcon class="text-primary" name="cil-pencil" @click="editItem(item)" /> -->
                   </CTableDataCell>
                 </CTableRow>
               </CTableBody>

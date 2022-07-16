@@ -6,10 +6,10 @@
           <CCardHeader>
             Detalhes da Pasta
             ({{ tableExample.length }} documentos)
-            <CButton color="success" size="sm" @click="addItem()">
+            <!-- <CButton color="success" size="sm" @click="addItem()">
               <CIcon class="text-light" name="cil-plus"/>
                 <span class="text-light">Adicionar</span>
-            </CButton>
+            </CButton> -->
           </CCardHeader>
           <CCardBody>
             <CRow v-for="item in tableExample" :key="item.id">
