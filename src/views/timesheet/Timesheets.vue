@@ -68,6 +68,34 @@
       </CCol>
     </CRow>
 
+    <CModal :visible="itemModal" @close="closeModal()">
+      <CModalHeader>
+        <CModalTitle>Editar TimeSheet</CModalTitle>
+      </CModalHeader>
+      <CModalBody>
+        <CForm>
+          <div class="mb-3">
+            <CFormLabel for="exampleFormControlInput1">Cliente</CFormLabel>
+            <CFormInput type="text" id="exampleFormControlInput1" v-model="editingItem.customer"/>
+          </div>
+          <div class="mb-3">
+            <CFormLabel for="exampleFormControlInput2">Descrição</CFormLabel>
+            <CFormInput type="text" id="exampleFormControlInput2" v-model="editingItem.description"/>
+          </div>
+          <div class="mb-3">
+            <CFormLabel for="exampleFormControlInput3">Hora</CFormLabel>
+            <CFormInput type="time" id="exampleFormControlInput3" v-model="editingItem.timesheet_hours" placeholder="0:00"/>
+          </div>
+        </CForm>
+      </CModalBody>
+      <CModalFooter>
+        <CButton color="secondary" @click="closeModal()">
+          Cancelar
+        </CButton>
+        <CButton color="primary" @click="saveItem(editingItem)">Salvar</CButton>
+      </CModalFooter>
+    </CModal>
+
   </div>
 </template>
 <script>
@@ -77,9 +105,9 @@ export default {
   name: 'Timesheets',
   setup() {
     const itemModal = ref(false)
-    const tableExample = [
+    const tableExample = ref([
       {
-        id: '001',
+        id: 1,
         timesheet_date: '12/07/2022',
         timesheet_hours: '7:00',
         employee: 'Edward Eric',
@@ -90,7 +118,7 @@ export default {
         conferred_by: 'Regis',
       },
       {
-        id: '002',
+        id: 2,
         timesheet_date: '13/07/2022',
         timesheet_hours: '2:00',
         employee: 'Edward Eric',
@@ -101,7 +129,7 @@ export default {
         conferred_by: 'Regis',
       },
       {
-        id: '003',
+        id: 3,
         timesheet_date: '13/07/2022',
         timesheet_hours: '4:30',
         employee: 'Edward Eric',
@@ -112,7 +140,7 @@ export default {
         conferred_by: 'Regis',
       },
       {
-        id: '004',
+        id: 4,
         timesheet_date: '14/07/2022',
         timesheet_hours: '1:15',
         employee: 'Edward Eric',
@@ -123,7 +151,7 @@ export default {
         conferred_by: 'Regis',
       },
       {
-        id: '005',
+        id: 5,
         timesheet_date: '15/07/2022',
         timesheet_hours: '3:45',
         employee: 'Edward Eric',
@@ -133,7 +161,7 @@ export default {
         is_conferred: false,
         conferred_by: 'Regis',
       },
-    ]
+    ])
 
     return {
       tableExample,
@@ -142,13 +170,45 @@ export default {
     }
   },
   methods: {
+    addItem() {
+      this.editingItem = {}
+      this.itemModal = true
+    },
+    saveItem(item) {
+      // Update
+      if (item.id) {
+        const obj = this.tableExample.find(d => d.id === item.id)
+        obj.customer = item.customer
+        obj.description = item.description
+        obj.timesheet_hours = item.timesheet_hours
+        this.itemModal = false
+        return
+      }
+      // Create
+      let today = new Date();
+      let dd = String(today.getDate()).padStart(2, '0');
+      let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      let yyyy = today.getFullYear();
+
+      today = dd + '/' + mm + '/' + yyyy;
+      this.tableExample.push({
+        id: this.tableExample.length + 1,
+        customer: this.editingItem.customer,
+        description: this.editingItem.description,
+        timesheet_date: today,
+        timesheet_hours: this.editingItem.timesheet_hours,
+        employee: 'Edward Eric',
+        contract: '001 - Lorem ipsum',
+      })
+      this.itemModal = false
+    },
     editItem(item) {
-      this.editingItem = { ...item };
+      this.editingItem = { ...item }
       this.itemModal = true
     },
     closeModal(item) {
       this.itemModal = false
     },
-  }
+  },
 }
 </script>
