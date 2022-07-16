@@ -9,8 +9,10 @@
               class="float-end"
               color="info"
               size="sm"
+              @click="printWindow()"
             >
-              <CIcon class="text-light" name="cil-print" /> <span class="text-light">Imprimir</span>
+              <CIcon class="text-light" name="cil-print" />
+              <span class="text-light">Imprimir</span>
             </CButton>
           </CCardHeader>
           <CCardBody>
@@ -137,6 +139,11 @@ export default {
 
     return {
       item,
+    }
+  },
+  methods: {
+    printWindow: function () {
+      window.print();
     }
   }
 }
