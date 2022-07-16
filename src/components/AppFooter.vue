@@ -3,7 +3,7 @@
     <div>
       <a href="" target="_blank">RGPro</a>
       <span class="ms-1"
-        >&copy; {{ new Date().getFullYear() }} RGPro.</span
+        >&copy; {{ new Date().getFullYear() }}</span
       >
     </div>
     <!-- <div class="ms-auto">
