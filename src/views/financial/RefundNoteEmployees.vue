@@ -5,10 +5,10 @@
         <CCard class="mb-4">
           <CCardHeader>
             Notas de Reembolso dos Funcionários
-            <CButton color="success" size="sm" @click="addItem()">
+            <!-- <CButton color="success" size="sm" @click="addItem()">
               <CIcon class="text-light" name="cil-plus"/>
                 <span class="text-light">Adicionar</span>
-            </CButton>
+            </CButton> -->
           </CCardHeader>
           <CCardBody>
             <CTable align="middle" class="mb-0 border" hover responsive>
@@ -51,7 +51,7 @@
                     </div>
                   </CTableDataCell>
                   <CTableDataCell class="text-center">
-                    <CIcon class="text-primary" name="cil-pencil" @click="editItem(item)" />
+                    <!-- <CIcon class="text-primary" name="cil-pencil" @click="editItem(item)" /> -->
                   </CTableDataCell>
                 </CTableRow>
                 <CTableRow> </CTableRow>
