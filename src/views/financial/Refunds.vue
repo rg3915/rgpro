@@ -26,9 +26,9 @@
               </CTableHead>
               <CTableBody>
                 <CTableRow v-for="item in tableExample" :key="item.id">
-                  <CTableDataCell>
+                  <CTableDataCell class="text-center">
                     <div>
-                      <router-link :to="{ name: 'Reembolso'}">{{ item.id }}</router-link>
+                      <router-link :to="{ name: 'Reembolso'}">{{ code(item.id) }}</router-link>
                     </div>
                   </CTableDataCell>
                   <CTableDataCell>
@@ -48,9 +48,7 @@
                     </div>
                   </CTableDataCell>
                   <CTableDataCell>
-                    <div>
-                      {{ item.customer }}
-                    </div>
+                    {{ item.customer }}
                   </CTableDataCell>
                   <CTableDataCell>
                     <div style="min-width: 6rem">
@@ -69,6 +67,38 @@
       </CCol>
     </CRow>
 
+    <CModal :visible="itemModal" @close="closeModal()">
+      <CModalHeader>
+        <CModalTitle>Editar Reembolso</CModalTitle>
+      </CModalHeader>
+      <CModalBody>
+        <CForm>
+          <div class="mb-3">
+            <CFormLabel for="exampleFormControlInput1">Cliente</CFormLabel>
+            <CFormInput type="text" id="exampleFormControlInput1" v-model="editingItem.customer"/>
+          </div>
+          <div class="mb-3">
+            <CFormLabel for="exampleFormControlInput2">Descrição</CFormLabel>
+            <CFormInput type="text" id="exampleFormControlInput2" v-model="editingItem.description"/>
+          </div>
+          <div class="mb-3">
+            <CFormLabel for="exampleFormControlInput3">Criado por</CFormLabel>
+            <CFormInput type="text" id="exampleFormControlInput3" v-model="editingItem.created_by"/>
+          </div>
+          <div class="mb-3">
+            <CFormLabel for="exampleFormControlInput4">Valor</CFormLabel>
+            <CFormInput type="number" step="0.01" id="exampleFormControlInput4" v-model="editingItem.value"/>
+          </div>
+        </CForm>
+      </CModalBody>
+      <CModalFooter>
+        <CButton color="secondary" @click="closeModal()">
+          Cancelar
+        </CButton>
+        <CButton color="primary" @click="saveItem(editingItem)">Salvar</CButton>
+      </CModalFooter>
+    </CModal>
+
   </div>
 </template>
 <script>
@@ -78,9 +108,9 @@ export default {
   name: 'Refunds',
   setup() {
     const itemModal = ref(false)
-    const tableExample = [
+    const tableExample = ref([
       {
-        id: '001',
+        id: 1,
         created: '12/07/2022',
         created_by: 'James Stewart',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -90,7 +120,7 @@ export default {
         active: true,
       },
       {
-        id: '002',
+        id: 2,
         created: '12/07/2022',
         created_by: 'James Stewart',
         description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
@@ -100,7 +130,7 @@ export default {
         active: true,
       },
       {
-        id: '003',
+        id: 3,
         created: '12/07/2022',
         created_by: 'James Stewart',
         description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
@@ -109,7 +139,7 @@ export default {
         value: 1415.22,
         active: true,
       },
-    ]
+    ])
 
     return {
       tableExample,
@@ -118,13 +148,49 @@ export default {
     }
   },
   methods: {
+    addItem() {
+      this.editingItem = {}
+      this.itemModal = true
+    },
+    saveItem(item) {
+      // Update
+      if (item.id) {
+        const obj = this.tableExample.find(d => d.id === item.id)
+        obj.customer = item.customer
+        obj.description = item.description
+        obj.created_by = item.created_by
+        obj.value = item.value
+        this.itemModal = false
+        return
+      }
+      // Create
+      let today = new Date();
+      let dd = String(today.getDate()).padStart(2, '0');
+      let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      let yyyy = today.getFullYear();
+
+      today = dd + '/' + mm + '/' + yyyy;
+      this.tableExample.push({
+        id: this.tableExample.length + 1,
+        customer: this.editingItem.customer,
+        description: this.editingItem.description,
+        created_by: this.editingItem.created_by,
+        value: this.editingItem.value,
+        type: 'Diversos',
+        created: today
+      })
+      this.itemModal = false
+    },
     editItem(item) {
-      this.editingItem = { ...item };
+      this.editingItem = { ...item }
       this.itemModal = true
     },
     closeModal(item) {
       this.itemModal = false
     },
-  }
+    code(id) {
+      return '00' + id
+    }
+  },
 }
 </script>

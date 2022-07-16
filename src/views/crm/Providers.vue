@@ -426,7 +426,7 @@ export default {
       this.employeeModal = false
     },
     editItem(item) {
-      this.editingItem = { ...item };
+      this.editingItem = { ...item }
       this.employeeModal = true
     },
     closeEmployeeModal(item) {
