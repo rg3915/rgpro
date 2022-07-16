@@ -4,7 +4,7 @@
       <CCol :md="12">
         <CCard class="mb-4">
           <CCardHeader>
-            Detalhes da Nota de Despesa da Fonte Pagadora
+            Detalhes da Nota de Despesa do Pagador
             <CButton
               color="primary"
               variant="link"

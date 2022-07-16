@@ -69,7 +69,7 @@ export default [
   },
   {
     component: 'CNavItem',
-    name: 'ND Fonte Pagadora',
+    name: 'ND Pagador',
     to: '/financial/refund-note-paying-sources',
     icon: 'cil-book',
     badge: {

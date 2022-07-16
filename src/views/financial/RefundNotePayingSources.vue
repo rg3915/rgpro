@@ -4,18 +4,18 @@
       <CCol :md="12">
         <CCard class="mb-4">
           <CCardHeader>
-            Notas de Despesas da Fonte Pagadora
-            <CButton color="success" size="sm" @click="addItem()">
+            Notas de Despesas do Pagador
+            <!-- <CButton color="success" size="sm" @click="addItem()">
               <CIcon class="text-light" name="cil-plus"/>
                 <span class="text-light">Adicionar</span>
-            </CButton>
+            </CButton> -->
           </CCardHeader>
           <CCardBody>
             <CTable align="middle" class="mb-0 border" hover responsive>
               <CTableHead color="light">
                 <CTableRow>
                   <CTableHeaderCell>Nota</CTableHeaderCell>
-                  <CTableHeaderCell>Fonte Pagadora</CTableHeaderCell>
+                  <CTableHeaderCell>Pagador</CTableHeaderCell>
                   <CTableHeaderCell>Vencimento</CTableHeaderCell>
                   <CTableHeaderCell class="text-center">Total</CTableHeaderCell>
                   <CTableHeaderCell class="text-center">Pago?</CTableHeaderCell>
@@ -26,7 +26,7 @@
                 <CTableRow v-for="item in tableExample" :key="item.id">
                   <CTableDataCell>
                     <div>
-                      <router-link :to="{ name: 'Nota de Despesa da Fonte Pagadora'}">{{ item.id }}</router-link>
+                      <router-link :to="{ name: 'Nota de Despesa do Pagador'}">{{ item.id }}</router-link>
                     </div>
                   </CTableDataCell>
                   <CTableDataCell>
@@ -51,7 +51,7 @@
                     </div>
                   </CTableDataCell>
                   <CTableDataCell class="text-center">
-                    <CIcon class="text-primary" name="cil-pencil" @click="editItem(item)" />
+                    <!-- <CIcon class="text-primary" name="cil-pencil" @click="editItem(item)" /> -->
                   </CTableDataCell>
                 </CTableRow>
                 <CTableRow> </CTableRow>

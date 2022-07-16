@@ -113,12 +113,12 @@ const routes = [
           },
           {
             path: '/financial/refund-note-paying-sources',
-            name: 'Notas de Despesas da Fonte Pagadora',
+            name: 'Notas de Despesas do Pagador',
             component: () => import('@/views/financial/RefundNotePayingSources.vue'),
           },
           {
             path: '/financial/refund-note-paying-source',
-            name: 'Nota de Despesa da Fonte Pagadora',
+            name: 'Nota de Despesa do Pagador',
             component: () => import('@/views/financial/RefundNotePayingSource.vue'),
           },
         ],
