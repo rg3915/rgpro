@@ -246,8 +246,8 @@ export default {
         id: 1,
         avatar: { src: avatar1, status: 'success' },
         user: {
-          name: 'Rebecca Avraamu',
-          email: 'rebecca@email.com',
+          name: 'Andrea Silberman',
+          email: 'andrea@email.com',
           phone: '11 98765-4321',
           new: true,
           registered: 'Jan 1, 2021',
@@ -266,8 +266,8 @@ export default {
         id: 2,
         avatar: { src: avatar2, status: 'danger' },
         user: {
-          name: 'Avram Tarasios',
-          email: 'avram@email.com',
+          name: 'Antony Bush',
+          email: 'antony@email.com',
           phone: '21 98531-4600',
           new: false,
           registered: 'Jan 1, 2021',
@@ -286,8 +286,8 @@ export default {
         id: 3,
         avatar: { src: avatar3, status: 'warning' },
         user: {
-          name: 'Quintin Ed',
-          email: 'quintin@email.com',
+          name: 'James Smith',
+          email: 'james@email.com',
           phone: '27 98752-0010',
           new: true,
           registered: 'Jan 1, 2021'
@@ -306,8 +306,8 @@ export default {
         id: 4,
         avatar: { src: avatar4, status: 'secondary' },
         user: {
-          name: 'Enéas Kwadwo',
-          email: 'eneas@email.com',
+          name: 'Jeannie Phillip',
+          email: 'jeannie@email.com',
           phone: '32 98765-0000',
           new: true,
           registered: 'Jan 1, 2021'
@@ -326,8 +326,8 @@ export default {
         id: 5,
         avatar: { src: avatar5, status: 'success' },
         user: {
-          name: 'Agapetus Tadeáš',
-          email: 'agapetus@email.com',
+          name: 'Margaret Potter',
+          email: 'margaret@email.com',
           phone: '11 98743-2100',
           new: true,
           registered: 'Jan 1, 2021',
@@ -346,8 +346,8 @@ export default {
         id: 6,
         avatar: { src: avatar6, status: 'danger' },
         user: {
-          name: 'Friderik Dávid',
-          email: 'friderik@email.com',
+          name: 'Newton Jones',
+          email: 'newton@email.com',
           phone: '11 98460-0101',
           new: true,
           registered: 'Jan 1, 2021',

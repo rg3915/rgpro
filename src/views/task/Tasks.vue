@@ -106,9 +106,12 @@
                v-model="editingItem.customer"
               :options="[
                 'Selecione um cliente',
-                { value: 'Rebecca Avraamu', label: 'Rebecca Avraamu' },
-                { value: 'Avram Tarasios', label: 'Avram Tarasios' },
-                { value: 'Quintin Ed', label: 'Quintin Ed' },
+                { value: 'Carmen Bradley', label: 'Carmen Bradley'},
+                { value: 'Daniel Demarais', label: 'Daniel Demarais'},
+                { value: 'Diana Gill', label: 'Diana Gill'},
+                { value: 'Elliana Eakins', label: 'Elliana Eakins'},
+                { value: 'Igor Burns', label: 'Igor Burns'},
+                { value: 'Zeal Dávid', label: 'Zeal Dávid'},
               ]">
             </CFormSelect>
           </div>
@@ -123,9 +126,12 @@
                v-model="editingItem.employee"
               :options="[
                 'Selecione um funcionário',
-                { value: 'Enéas Kwadwo', label: 'Enéas Kwadwo' },
-                { value: 'Agapetus Tadeáš', label: 'Agapetus Tadeáš' },
-                { value: 'Friderik Dávid', label: 'Friderik Dávid' },
+                { value: 'Andrea Silberman', label: 'Andrea Silberman' },
+                { value: 'Antony Bush', label: 'Antony Bush' },
+                { value: 'James Smith', label: 'James Smith' },
+                { value: 'Jeannie Phillip', label: 'Jeannie Phillip' },
+                { value: 'Margaret Potter', label: 'Margaret Potter' },
+                { value: 'Newton Jones', label: 'Newton Jones' },
               ]">
             </CFormSelect>
           </div>

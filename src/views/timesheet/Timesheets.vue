@@ -82,9 +82,12 @@
                v-model="editingItem.customer"
               :options="[
                 'Selecione um cliente',
-                { value: 'Rebecca Avraamu', label: 'Rebecca Avraamu' },
-                { value: 'Avram Tarasios', label: 'Avram Tarasios' },
-                { value: 'Quintin Ed', label: 'Quintin Ed' },
+                { value: 'Carmen Bradley', label: 'Carmen Bradley'},
+                { value: 'Daniel Demarais', label: 'Daniel Demarais'},
+                { value: 'Diana Gill', label: 'Diana Gill'},
+                { value: 'Elliana Eakins', label: 'Elliana Eakins'},
+                { value: 'Igor Burns', label: 'Igor Burns'},
+                { value: 'Zeal Dávid', label: 'Zeal Dávid'},
               ]">
             </CFormSelect>
           </div>

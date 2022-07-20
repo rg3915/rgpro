@@ -246,7 +246,7 @@ export default {
         id: 1,
         avatar: { src: avatar1, status: 'success' },
         user: {
-          name: 'Rebecca Avraamu',
+          name: 'Carmen Bradley',
           email: 'rebecca@email.com',
           phone: '11 98765-4321',
           new: true,
@@ -266,7 +266,7 @@ export default {
         id: 2,
         avatar: { src: avatar2, status: 'danger' },
         user: {
-          name: 'Avram Tarasios',
+          name: 'Chrissy Demarais',
           email: 'avram@email.com',
           phone: '21 98531-4600',
           new: false,
@@ -286,7 +286,7 @@ export default {
         id: 3,
         avatar: { src: avatar3, status: 'warning' },
         user: {
-          name: 'Quintin Ed',
+          name: 'Debra Burns',
           email: 'quintin@email.com',
           phone: '27 98752-0010',
           new: true,
@@ -306,7 +306,7 @@ export default {
         id: 4,
         avatar: { src: avatar4, status: 'secondary' },
         user: {
-          name: 'Enéas Kwadwo',
+          name: 'Diana Gill',
           email: 'eneas@email.com',
           phone: '32 98765-0000',
           new: true,
@@ -326,7 +326,7 @@ export default {
         id: 5,
         avatar: { src: avatar5, status: 'success' },
         user: {
-          name: 'Agapetus Tadeáš',
+          name: 'Donald Eakins',
           email: 'agapetus@email.com',
           phone: '11 98743-2100',
           new: true,
