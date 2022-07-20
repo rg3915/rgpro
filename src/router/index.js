@@ -20,6 +20,23 @@ const routes = [
           import(/* webpackChunkName: "dashboard" */ '@/views/Dashboard.vue'),
       },
       {
+        path: '/task',
+        name: 'Tarefas',
+        component: {
+          render() {
+            return h(resolveComponent('router-view'))
+          },
+        },
+        redirect: '/task/tasks',
+        children: [
+          {
+            path: '/task/tasks',
+            name: 'Tarefas',
+            component: () => import('@/views/task/Tasks.vue'),
+          },
+        ]
+      },
+      {
         path: '/crm',
         name: 'CRM',
         component: {

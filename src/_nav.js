@@ -7,6 +7,16 @@ export default [
   },
   {
     component: 'CNavTitle',
+    name: 'Tarefas',
+  },
+  {
+    component: 'CNavItem',
+    name: 'Tarefas',
+    to: '/task/tasks',
+    icon: 'cil-list',
+  },
+  {
+    component: 'CNavTitle',
     name: 'crm',
   },
   {
