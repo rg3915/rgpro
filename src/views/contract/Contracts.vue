@@ -66,7 +66,16 @@
         <CForm>
           <div class="mb-3">
             <CFormLabel for="exampleFormControlInput1">Cliente</CFormLabel>
-            <CFormInput type="text" id="exampleFormControlInput1" v-model="editingItem.customer"/>
+            <CFormSelect
+              aria-label="Cliente"
+               v-model="editingItem.customer"
+              :options="[
+                'Selecione um cliente',
+                { value: 'Rebecca Avraamu', label: 'Rebecca Avraamu' },
+                { value: 'Avram Tarasios', label: 'Avram Tarasios' },
+                { value: 'Quintin Ed', label: 'Quintin Ed' },
+              ]">
+            </CFormSelect>
           </div>
           <div class="mb-3">
             <CFormLabel for="exampleFormControlInput2">Título</CFormLabel>

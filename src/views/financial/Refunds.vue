@@ -76,7 +76,16 @@
         <CForm>
           <div class="mb-3">
             <CFormLabel for="exampleFormControlInput1">Cliente</CFormLabel>
-            <CFormInput type="text" id="exampleFormControlInput1" v-model="editingItem.customer"/>
+            <CFormSelect
+              aria-label="Cliente"
+               v-model="editingItem.customer"
+              :options="[
+                'Selecione um cliente',
+                { value: 'Rebecca Avraamu', label: 'Rebecca Avraamu' },
+                { value: 'Avram Tarasios', label: 'Avram Tarasios' },
+                { value: 'Quintin Ed', label: 'Quintin Ed' },
+              ]">
+            </CFormSelect>
           </div>
           <div class="mb-3">
             <CFormLabel for="exampleFormControlInput2">Descrição</CFormLabel>
@@ -84,7 +93,16 @@
           </div>
           <div class="mb-3">
             <CFormLabel for="exampleFormControlInput3">Criado por</CFormLabel>
-            <CFormInput type="text" id="exampleFormControlInput3" v-model="editingItem.created_by"/>
+            <CFormSelect
+              aria-label="Funcionário"
+               v-model="editingItem.created_by"
+              :options="[
+                'Selecione um funcionário',
+                { value: 'Enéas Kwadwo', label: 'Enéas Kwadwo' },
+                { value: 'Agapetus Tadeáš', label: 'Agapetus Tadeáš' },
+                { value: 'Friderik Dávid', label: 'Friderik Dávid' },
+              ]">
+            </CFormSelect>
           </div>
           <div class="mb-3">
             <CFormLabel for="exampleFormControlInput4">Valor</CFormLabel>
