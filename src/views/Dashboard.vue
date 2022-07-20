@@ -89,7 +89,7 @@
         </CCard>
       </CCol>
     </CRow>
-    <WidgetsStatsD />
+    <!-- <WidgetsStatsD /> -->
     <CRow>
       <CCol :md="12">
         <CCard class="mb-4">
@@ -102,8 +102,8 @@
                     <div
                       class="border-start border-start-4 border-start-info py-1 px-3 mb-3"
                     >
-                      <div class="text-medium-emphasis small">New Clients</div>
-                      <div class="fs-5 fw-semibold">9,123</div>
+                      <div class="text-medium-emphasis small">Novos Clientes</div>
+                      <div class="fs-5 fw-semibold">415</div>
                     </div>
                   </CCol>
                   <CCol :sm="6">
@@ -111,9 +111,9 @@
                       class="border-start border-start-4 border-start-danger py-1 px-3 mb-3"
                     >
                       <div class="text-medium-emphasis small">
-                        Recurring Clients
+                        Novos Contratos
                       </div>
-                      <div class="fs-5 fw-semibold">22,643</div>
+                      <div class="fs-5 fw-semibold">12</div>
                     </div>
                   </CCol>
                 </CRow>
@@ -140,16 +140,16 @@
                     <div
                       class="border-start border-start-4 border-start-warning py-1 px-3 mb-3"
                     >
-                      <div class="text-medium-emphasis small">Pageviews</div>
-                      <div class="fs-5 fw-semibold">78,623</div>
+                      <div class="text-medium-emphasis small">Contatos</div>
+                      <div class="fs-5 fw-semibold">22</div>
                     </div>
                   </CCol>
                   <CCol :sm="6">
                     <div
                       class="border-start border-start-4 border-start-success py-1 px-3 mb-3"
                     >
-                      <div class="text-medium-emphasis small">Organic</div>
-                      <div class="fs-5 fw-semibold">49,123</div>
+                      <div class="text-medium-emphasis small">Fornecedores</div>
+                      <div class="fs-5 fw-semibold">49</div>
                     </div>
                   </CCol>
                 </CRow>

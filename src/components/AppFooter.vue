@@ -3,13 +3,13 @@
     <div>
       <a href="" target="_blank">RGPro</a>
       <span class="ms-1"
-        >&copy; {{ new Date().getFullYear() }}</span
+        >&copy; {{ new Date().getFullYear() }} SeletaSoft</span
       >
     </div>
-    <!-- <div class="ms-auto">
-      <span class="me-1" target="_blank">Powered by</span>
-      <a href="https://coreui.io/vue">CoreUI for Vue</a>
-    </div> -->
+    <div class="ms-auto">
+      <span class="me-1" target="_blank">by</span>
+      <a href="">RGPro</a>
+    </div>
   </CFooter>
 </template>
 
